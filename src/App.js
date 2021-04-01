@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { RollTable } from './components/RollTable';
-import { RollPreview } from './components/RollPreview';
-import './App.css';
 import MOCK from './data/data.json';
+
+import './App.css';
 
 const fetchRolls = () => {
   return MOCK;
@@ -14,7 +14,6 @@ export default function App() {
 
   useEffect(() => {
     const rollsData = fetchRolls();
-    console.log(rollsData);
     setRolls(rollsData);
   }, []);
 
@@ -22,7 +21,7 @@ export default function App() {
     <div className="page">
       <main className="main">
         <div className="main__image">
-          <RollPreview />
+          
         </div>
         <div className="main__rollTable">
           <RollTable rolls={rolls} />
