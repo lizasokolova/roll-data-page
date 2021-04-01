@@ -1,49 +1,70 @@
-# rollDataPage
+# Getting Started with Create React App
 
-Задача: Страница c данными рулонов
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Требования:
+## Available Scripts
 
-1. React. Все компоненты оформлены в виде стилей. Классовые компоненты использовать нельзя.
+In the project directory, you can run:
 
-2: Вёрстка адаптивная:
+### `yarn start`
 
-     1. картинка 60% минимальная высота 300px
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-     2. табличка 40% минимальная высота 200px минимальная ширина 600px максимальная высота 1000px
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-3: Данные запрашиваются с сервера (реализовать можно на чем угодно, допустим nodejs. Данные статичны, находятся во вложении).
+### `yarn test`
 
-1.  Данные для таблицы запрашиваются при загрузке страницы.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-2.  По клику на строчке в таблице запрашивается картинка по значению imageid и обновляется на интерфейсе.
+### `yarn build`
 
-4: Таблица должна быть реализована с использованием: https://material-ui.com/ru/components/tables/
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-5: Таблица имеет возможность сортировки по колонкам (сортировка по клику в заголовке)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
- 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Описание полей, которые надо вывести в таблицу:
+### `yarn eject`
 
- 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Поле           | Имя в таблице
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
------------------------------
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-"paramset"    | Тип материала
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-"length"      | Длинна
+## Learn More
 
-"endtime"     | Время окончания
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-"starttime"   | Время начала,
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-"totaldefects"| Обнаружено проблем,
+### Code Splitting
 
-"coilid"      | № рулона,
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-"bdecoilid"   | Партия",
+### Analyzing the Bundle Size
 
-"width":      | Ширина
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
