@@ -24,7 +24,6 @@
 .main__rollTable {
   min-width: 600px;
   max-height: 1000px;
-  overflow-y: scroll;
   height: 40%;
   margin-top: 15px;
 }
@@ -32,10 +31,4 @@
 .footer {
   margin-top: 25px;
   padding: 10px;
-}
-
-.table {
-  min-height: 200px;
-  min-width: 600px;
-  max-height: 1000px;
 }

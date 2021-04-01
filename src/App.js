@@ -7,10 +7,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import MOCK from './data/data.json';
 import { RollPreview } from './components/RollPreview';
 import { TableHeader } from './components/TableHeader';
 import { RollItem } from './components/RollItem';
+
 import './App.css';
 
 
@@ -18,10 +18,15 @@ const useStyles = makeStyles({
   table: {
     width: '100%',
   },
+  container: {
+    maxHeight: '100%',
+  },
 });
 
-const fetchRolls = () => {
-  return MOCK;
+const fetchRolls = async () => {
+  const response = await fetch('/api/rolls');
+  const rolls = await response.json();
+  return rolls;
 }
 
 export default function App() {
@@ -31,9 +36,13 @@ export default function App() {
 
   const classes = useStyles();
 
-  useEffect(() => {
-    const rollsData = fetchRolls();
+  const load = async () => {
+    const rollsData = await fetchRolls();
     setRolls(rollsData);
+  };
+
+  useEffect(() => {
+    load();
   }, []);
 
   return (
@@ -43,21 +52,21 @@ export default function App() {
           <RollPreview previewId={previewId} />
         </div>
         <div className="main__rollTable">
-          <TableContainer component={Paper}>
-            <Table className={classes.table} size="small" aria-label="a dense table">
+          <TableContainer component={Paper} className={classes.container}>
+            <Table stickyHeader className={classes.table} size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow>
                   <TableHeader />
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rolls.map((roll) => {
+                {rolls ? rolls.map((roll) => {
                   return (
                     <TableRow key={roll.name} onClick={() => setPreviewId(roll.imageid)}>
-                      <RollItem roll={roll}/>
+                      <RollItem roll={roll} />
                     </TableRow>
                   )
-                })}
+                }) : 'Загрузка'}
               </TableBody>
             </Table>
           </TableContainer>
