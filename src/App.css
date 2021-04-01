@@ -23,6 +23,7 @@
 
 .main__rollTable {
   min-width: 600px;
+  min-height: 200px;
   max-height: 1000px;
   height: 40%;
   margin-top: 15px;
