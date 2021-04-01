@@ -36,6 +36,12 @@ export default function App() {
 
   const classes = useStyles();
 
+  const sortRolls = (sortCase) => {
+    const newRolls = [...rolls];
+    newRolls.sort((rollA, rollB) => { return rollA[sortCase] > rollB[sortCase] ? 1 : -1 });
+    setRolls(newRolls);
+  };
+
   const load = async () => {
     const rollsData = await fetchRolls();
     setRolls(rollsData);
@@ -52,24 +58,27 @@ export default function App() {
           <RollPreview previewId={previewId} />
         </div>
         <div className="main__rollTable">
-          <TableContainer component={Paper} className={classes.container}>
-            <Table stickyHeader className={classes.table} size="small" aria-label="a dense table">
-              <TableHead>
-                <TableRow>
-                  <TableHeader />
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rolls ? rolls.map((roll) => {
-                  return (
-                    <TableRow key={roll.name} onClick={() => setPreviewId(roll.imageid)}>
-                      <RollItem roll={roll} />
-                    </TableRow>
-                  )
-                }) : 'Загрузка'}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          {rolls ? (
+            <TableContainer component={Paper} className={classes.container}>
+              <Table stickyHeader className={classes.table} size="small" aria-label="a dense table">
+                <TableHead>
+                  <TableRow>
+                    <TableHeader onSort={sortRolls} />
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rolls.map((roll) => {
+                    return (
+                      <TableRow key={roll.id} onClick={() => setPreviewId(roll.imageid)}>
+                        <RollItem roll={roll} />
+                      </TableRow>
+                    )
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )
+            : 'Загрузка'}
         </div>
       </main>
     </div>
